@@ -4,10 +4,10 @@ import { rootReducer } from './rootReducer';
 import { createLogger } from 'redux-logger';
 
 const logger = createLogger({
-    duration: true,
+    duration:  true,
     collapsed: true,
-    colors: {
-       title: () => '#139BFE',
+    colors:    {
+        title: () => '#139BFE',
         prevState: () => '#1C5FAF',
         action: () => '#149945',
         nextState: () => '#A47104',
@@ -31,6 +31,3 @@ store.subscribe(() => {
 
     localStorage.setItem('gallery', JSON.stringify(state));
 });
-
-// HW:
-// prev gallery
