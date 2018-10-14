@@ -6,6 +6,7 @@ import { Catcher, Spinner, Nav, Posts, Notification } from '../components';
 
 export default class Feed extends Component {
     render () {
+
         return (
             <Catcher>
                 <Spinner />
