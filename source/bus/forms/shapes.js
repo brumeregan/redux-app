@@ -3,8 +3,8 @@ import { object, string, boolean } from 'yup';
 
 export const login = {
     shape: {
-        email:    '',
-        password: '',
+        email:    'shh@fff.lo',
+        password: '123456',
         remember: false,
     },
     schema: object().shape({
