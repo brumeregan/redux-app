@@ -1,6 +1,6 @@
 import { types } from './types';
 
-export const reducer = (state = inititalState, action) => {
+export const reducer = (state = initialState, action) => {
     switch (action.type) {
         case types.TYPE:
             return state;
