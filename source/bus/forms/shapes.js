@@ -20,11 +20,11 @@ export const login = {
 
 export const signup = {
     shape: {
-        firstName: '',
-        lastName:  '',
-        email:     '',
-        password:  '',
-        invite:    '',
+        firstName: 'Sherlock',
+        lastName:  'Holmes',
+        email:     'shh@fff.lo',
+        password:  '123456',
+        invite:    '0ic2Sv7NuUJO',
     },
     schema: object().shape({
         firstName: string().required(),
