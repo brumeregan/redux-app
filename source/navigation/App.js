@@ -2,12 +2,11 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
-import {Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 // Pages
-import { Login, Signup, Profile, NewPassword, Feed } from '../pages';
-
-import { book } from './book';
+import Private from './Private';
+import Public from './Public';
 
 const mapStateToProps = (state) => {
     return {
@@ -22,19 +21,6 @@ export default class App extends Component {
     render () {
         const { isAuthenticated } = this.props;
 
-        return isAuthenticated ? (
-            <Switch>
-                <Route component = { Profile } path = { book.profile } />
-                <Route component = { NewPassword } path = { book.newPassword } />
-                <Route component = { Feed } path = { book.feed } />
-                <Redirect to = { book.feed } />
-            </Switch>
-        ) : (
-            <Switch>
-                <Route component = { Login } path = { book.login } />
-                <Route component = { Signup } path = { book.signUp } />
-                <Redirect to = { book.login } />
-            </Switch>
-        );
+        return isAuthenticated ? <Private /> : <Public />;
     }
 }
