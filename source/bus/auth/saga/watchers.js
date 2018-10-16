@@ -12,6 +12,10 @@ function* watchLogin () {
     yield takeEvery(types.LOGIN_ASYNC, login);
 }
 
+function* watchLogout () {
+    yield takeEvery(types.LOGOUT_ASYNC, logout);
+}
+
 function* watchAuthenticate () {
     yield takeEvery(types.AUTHENTICATE_ASYNC, authenticate);
 }
@@ -25,6 +29,7 @@ export function* watchAuth () {
         call(watchSignup),
         call(watchLogin),
         call(watchAuthenticate),
-        call(watchInitialize)
+        call(watchInitialize),
+        call(watchLogout)
     ]);
 }

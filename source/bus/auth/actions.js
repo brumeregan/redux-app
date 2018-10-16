@@ -11,6 +11,11 @@ export const authActions = {
             type: types.INITIALIZE,
         };
     },
+    logout: () => {
+        return {
+            type: types.LOGOUT,
+        };
+    },
     signupAsync: (userData) => {
         return {
             type:    types.SIGNUP_ASYNC,
@@ -25,12 +30,12 @@ export const authActions = {
     },
     authenticateAsync: () => {
         return {
-            type:    types.AUTHENTICATE_ASYNC,
+            type: types.AUTHENTICATE_ASYNC,
         };
     },
-    initializeAsync: () => {
+    logoutAsync: () => {
         return {
-            type:    types.INITIALIZE_ASYNC,
+            type: types.LOGOUT_ASYNC,
         };
     },
 };

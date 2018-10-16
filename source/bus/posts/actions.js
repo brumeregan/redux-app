@@ -15,6 +15,12 @@ export const postsActions = {
         };
     },
 
+    clearPosts: () => {
+        return {
+            type: types.CLEAR_POSTS,
+        };
+    },
+
     fetchPostsAsync: () => {
         return {
             type: types.FETCH_POSTS_ASYNC,

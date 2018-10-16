@@ -4,6 +4,7 @@ import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+
 // Pages
 import Private from './Private';
 import Public from './Public';
