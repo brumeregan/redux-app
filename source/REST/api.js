@@ -60,5 +60,14 @@ export const api = {
                 body: JSON.stringify({ comment }),
             });
         },
+        delete (postId) {
+            return fetch(`${MAIN_URL}/feed/${postId}`, {
+                method:  'POST',
+                headers: {
+                    Authorization: this.token,
+                    'Content-Type': 'application/json',
+                },
+            });
+        },
     },
 };

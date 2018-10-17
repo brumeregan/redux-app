@@ -7,6 +7,7 @@ import Styles from './styles.m.css';
 
 // Components
 import { Like } from '../../components';
+// TODO delete post
 
 export default class Post extends Component {
     _getCross = () => {
