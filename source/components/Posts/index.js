@@ -1,6 +1,5 @@
 // Core
 import React, { Component } from 'react';
-import { List } from 'immutable';
 import FlipMove from 'react-flip-move';
 
 import { connect } from 'react-redux';
@@ -8,14 +7,11 @@ import { bindActionCreators } from 'redux';
 
 // Instruments
 import Styles from './styles.m.css';
-import { mockedProfile } from '../../instruments/mockedData';
 
 import { postsActions } from '../../bus/posts/actions';
 
 // Components
 import { Composer, Catcher, Post } from '../../components';
-
-
 
 const mapStateToProps = (state) => {
     return {

@@ -21,9 +21,9 @@ export const postsActions = {
         };
     },
 
-    deletePost: (postId) => {
+    removePost: (postId) => {
         return {
-            type: types.DELETE_POST,
+            type: types.REMOVE_POST,
             payload: postId
         };
     },
@@ -42,9 +42,9 @@ export const postsActions = {
         };
     },
 
-    deletePostAsync: (postId) => {
+    removePostAsync: (postId) => {
         return {
-            type:    types.DELETE_POST_ASYNC,
+            type:    types.REMOVE_POST_ASYNC,
             payload: postId
         };
     },

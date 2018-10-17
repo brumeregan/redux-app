@@ -60,9 +60,9 @@ export const api = {
                 body: JSON.stringify({ comment }),
             });
         },
-        delete (postId) {
+        remove (postId) {
             return fetch(`${MAIN_URL}/feed/${postId}`, {
-                method:  'POST',
+                method:  'DELETE',
                 headers: {
                     Authorization: this.token,
                     'Content-Type': 'application/json',
