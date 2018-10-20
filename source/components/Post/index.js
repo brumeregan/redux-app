@@ -11,8 +11,6 @@ import { connect } from 'react-redux';
 // Components
 import { Like } from '../../components';
 
-// TODO delete post
-
 const mapDispatchToProps = (dispatch) => {
     return {
         actions: bindActionCreators({
@@ -26,7 +24,6 @@ const mapDispatchToProps = (dispatch) => {
     mapDispatchToProps)
 export default class Post extends Component {
     _getCross = () => {
-        console.log(this.props);
         const { profile, author } = this.props;
 
         return profile.get('id') === author.get('id') ? (
