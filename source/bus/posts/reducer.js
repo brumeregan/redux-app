@@ -18,6 +18,14 @@ export const postsReducer = (state = initialState, action) => {
             }), 'likes'], likes => {
                 return likes.unshift(action.payload.liker);
             });
+        case types.UNLIKE_POST:
+            return state.updateIn([state.findIndex((post) => {
+                return post.get('id') === action.payload.postId;
+            }), 'likes'], likes => {
+                return likes.pop(likes.findIndex((unliker) => unliker.get('id') === action.payload.unliker.id));
+            });
+
+            return state;
         case types.CLEAR_POSTS:
             return state.clear();
         default:
