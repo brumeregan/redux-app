@@ -7,7 +7,7 @@ import { ConnectedRouter as Router } from 'react-router-redux';
 
 //Instruments
 import { store } from './init/store';
-import { history } from '../init/middleware/core';
+import { history } from './init/middleware/core';
 import './theme/init';
 
 // Intro

@@ -33,6 +33,11 @@ export const authActions = {
             type: types.AUTHENTICATE_ASYNC,
         };
     },
+    initializeAsync: () => {
+        return {
+            type: types.INITIALIZE_ASYNC,
+        };
+    },
     logoutAsync: () => {
         return {
             type: types.LOGOUT_ASYNC,
