@@ -14,7 +14,7 @@ import { Like } from '../../components';
 const mapDispatchToProps = (dispatch) => {
     return {
         actions: bindActionCreators({
-            removePostAsync: postsActions.removePostAsync,
+            ...postsActions
         }, dispatch),
     };
 };
