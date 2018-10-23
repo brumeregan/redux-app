@@ -9,22 +9,23 @@ import { bindActionCreators } from 'redux';
 import Styles from './styles.m.css';
 
 import { postsActions } from '../../bus/posts/actions';
+import { usersActions } from '../../bus/users/actions';
 
 // Components
 import { Composer, Catcher, Post } from '../../components';
 
 const mapStateToProps = (state) => {
     return {
-        posts: state.posts,
-        profile: state.profile
+        posts:   state.posts,
+        profile: state.profile,
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
         actions: bindActionCreators({
-            fetchPostsAsync: postsActions.fetchPostsAsync,
-            createPostAsync: postsActions.createPostAsync }, dispatch),
+            ...postsActions,
+            ...usersActions }, dispatch),
     };
 };
 
@@ -36,6 +37,7 @@ export default class Posts extends Component {
         const { actions } = this.props;
 
         actions.fetchPostsAsync();
+        actions.fetchUsersAsync();
     }
 
     render () {

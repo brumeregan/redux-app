@@ -73,8 +73,18 @@ export const api = {
                 method: 'PUT',
                 headers: {
                     Authorization: this.token,
-                }
-            })
-        }
+                },
+            });
+        },
+    },
+    users: {
+        fetch () {
+            return fetch(`${MAIN_URL}/user/all`, {
+                method: 'GET',
+                headers: {
+                    Authorization: this.token
+                },
+            });
+        },
     },
 };

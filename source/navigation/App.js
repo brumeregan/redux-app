@@ -4,6 +4,8 @@ import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
+import { socket, joinSocketChannel } from '../init/socket';
+import { socketActions } from '../bus/socket/actions';
 
 // Pages
 import Private from './Private';
@@ -21,7 +23,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
     initializeAsync: authActions.initializeAsync,
-    // authenticateAsync: authActions.authenticateAsync,
+    ...socketActions,
 };
 
 @hot(module)
@@ -29,16 +31,24 @@ const mapDispatchToProps = {
 @connect(mapStateToProps, mapDispatchToProps)
 export default class App extends Component {
     componentDidMount () {
-        this.props.initializeAsync();
+        const { listenConnection, initializeAsync } = this.props;
+        listenConnection();
+        initializeAsync();
+        joinSocketChannel();
+    }
+
+    componentWillUnmount () {
+        socket.removeListener('connect');
+        socket.removeListener('disconnect');
     }
 
     render () {
-        const { isAuthenticated, isInitialized } = this.props;
+        const { isAuthenticated, isInitialized, listenPosts } = this.props;
 
         if (!isInitialized) {
             return <Loading />;
         }
 
-        return isAuthenticated ? <Private /> : <Public />;
+        return isAuthenticated ? <Private listenPosts = { listenPosts } /> : <Public />;
     }
 }

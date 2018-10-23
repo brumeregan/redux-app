@@ -28,7 +28,7 @@ const sagaMiddleware = createSagaMiddleware();
 const devtools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const composeEnhancers = __DEV__ && devtools ? devtools : compose;
 
-const middleware = [sagaMiddleware, routerMiddleware];
+const middleware = [sagaMiddleware, customThunk, routerMiddleware];
 
 if (__DEV__) {
     middleware.push(logger);
