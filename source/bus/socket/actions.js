@@ -1,8 +1,6 @@
 import { socket } from '../../init/socket';
 import { uiActions } from '../ui/actions';
 import { postsActions } from '../posts/actions';
-//TODO remove post
-//socket.on('remove')
 
 export const socketActions = {
     listenConnection: () => (dispatch) => {
@@ -23,7 +21,6 @@ export const socketActions = {
          });
 
          socket.on('like', (event) => {
-            console.log('event', JSON.parse(event));
             const { data, meta } = JSON.parse(event);
 
             if (meta.action === 'like') {
@@ -34,7 +31,7 @@ export const socketActions = {
                 dispatch(postsActions.likePost({
                     postId: data.postId,
                     liker,
-                }))
+                }));
             } else {
                 dispatch(postsActions.unlikePost(data))
             }
@@ -42,6 +39,7 @@ export const socketActions = {
 
          socket.on('remove', (event) => {
              const { data } = JSON.parse(event);
+
              dispatch(postsActions.removePost(data));
          });
     },
