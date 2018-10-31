@@ -13,4 +13,25 @@ export const profileActions = {
             type:    types.CLEAR_PROFILE,
         };
     },
+
+    updateNameAsync: (newName) => {
+        return {
+            type: types.UPDATE_NAME_ASYNC,
+            payload: newName,
+        }
+    },
+
+    updateAvatar: (newAvatarUrl) => {
+        return {
+            type: types.UPDATE_AVATAR,
+            payload: newAvatarUrl,
+        };
+    },
+
+    updateAvatarAsync: (newAvatar) => {
+        return {
+            type: types.UPDATE_AVATAR_ASYNC,
+            payload: newAvatar,
+        };
+    },
 };

@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-    logoutAsync: authActions.loginAsync
+    logoutAsync: authActions.logoutAsync
 };
 
 @connect(mapStateToProps, mapDispatchToProps)
