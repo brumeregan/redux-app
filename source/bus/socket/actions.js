@@ -22,6 +22,7 @@ export const socketActions = {
 
          socket.on('like', (event) => {
             const { data, meta } = JSON.parse(event);
+             console.log('like socket');
 
             if (meta.action === 'like') {
                 const liker = getState()
@@ -33,7 +34,14 @@ export const socketActions = {
                     liker,
                 }));
             } else {
-                dispatch(postsActions.unlikePost(data))
+                const liker = getState()
+                    .users.find(user => user.get('id') === data.userId)
+                    .delete('avatar');
+
+                dispatch(postsActions.unlikePost({
+                    postId: data.postId,
+                    liker
+                }));
             }
          });
 
