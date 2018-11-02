@@ -24,7 +24,6 @@ export function* login ({ payload: credentials }) {
 
         yield apply(localStorage, localStorage.setItem, ['token', profile.token]);
 
-        console.log({profile});
         yield put(profileActions.fillProfile(profile));
         yield put(actions.change('forms.user.profile.firstName', profile.firstName));
         yield put(actions.change('forms.user.profile.lastName', profile.lastName));

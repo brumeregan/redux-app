@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Control } from 'react-redux-form';
 import cx from 'classnames';
-import { Map } from 'immutable';
 import { connect } from 'react-redux';
 
 // Instruments
@@ -18,7 +17,7 @@ import { profileActions } from '../../bus/profile/actions';
 const mapStateToProps = (state) => {
     return {
         isFetching: state.ui.get('isFetching'),
-        profile: state.profile,
+        profile:    state.profile,
     };
 };
 
@@ -26,16 +25,9 @@ const mapDispatchToProps = profileActions;
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Profile extends Component {
-    static defaultProps = {
-
-        // Actions
-        // updateNameAsync:   () => {},
-        // updateAvatarAsync: () => {},
-    };
 
     _submitUserInfo = (userInfo) => {
         const { updateNameAsync, updateAvatarAsync } = this.props;
-        console.log(this.props);
 
         if (userInfo.avatar.length) {
             const { avatar } = userInfo;

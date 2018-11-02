@@ -22,7 +22,6 @@ export const socketActions = {
 
          socket.on('like', (event) => {
             const { data, meta } = JSON.parse(event);
-             console.log('like socket');
 
             if (meta.action === 'like') {
                 const liker = getState()

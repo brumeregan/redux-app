@@ -18,20 +18,27 @@ export const profileActions = {
         return {
             type: types.UPDATE_NAME_ASYNC,
             payload: newName,
-        }
+        };
     },
 
     updateAvatar: (newAvatarUrl) => {
         return {
-            type: types.UPDATE_AVATAR,
+            type:    types.UPDATE_AVATAR,
             payload: newAvatarUrl,
         };
     },
 
     updateAvatarAsync: (newAvatar) => {
         return {
-            type: types.UPDATE_AVATAR_ASYNC,
+            type:    types.UPDATE_AVATAR_ASYNC,
             payload: newAvatar,
+        };
+    },
+
+    updatePasswordAsync: (passwords) => {
+        return {
+            type:    types.UPDATE_PASSWORD_ASYNC,
+            payload: passwords
         };
     },
 };

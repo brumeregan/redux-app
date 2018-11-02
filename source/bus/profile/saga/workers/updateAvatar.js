@@ -1,21 +1,17 @@
 import { api } from '../../../../REST';
-import { postsActions } from '../../actions';
 import { put, apply } from 'redux-saga/effects';
 import { uiActions } from '../../../ui/actions';
 import { profileActions } from '../../../profile/actions';
 import { actions } from 'react-redux-form';
 
-export function* updateAvatar ({payload: [newAvatar]}) {
-    console.log('updateAvatar', newAvatar);
+export function* updateAvatar ({ payload: [newAvatar] }) {
     try {
         yield put(uiActions.startFetching());
 
         const avatarFormData = yield new FormData();
-        yield apply(avatarFormData, avatarFormData.append, ['avatar', newAvatar])
+        yield apply(avatarFormData, avatarFormData.append, ['avatar', newAvatar]);
 
-        const response = yield apply(api, api.profile.updateAvatar, [
-            avatarFormData
-        ]);
+        const response = yield apply(api, api.profile.updateAvatar, [avatarFormData]);
         const { data: newAvatarUrl, message } = yield apply(response, response.json);
 
         if (response.status !== 200) {
