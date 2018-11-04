@@ -6,7 +6,6 @@ import { uiActions } from '../../../ui/actions';
 import { authActions } from '../../actions';
 import { profileActions } from '../../../profile/actions';
 
-
 export function* signup ({ payload: userInfo }) {
     try {
         yield put(uiActions.startFetching());
