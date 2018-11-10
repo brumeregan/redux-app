@@ -56,6 +56,18 @@ const users = [
     }
 ];
 
+const newName = {
+    firstName: 'Walter',
+    lastName: 'White'
+};
+
+const newAvatar = ['avatar'];
+
+const newPassword = {
+    oldPassword: '1233',
+    newPassword: '1234'
+};
+
 global.__ = {
     userProfile,
     errorMessage,
@@ -69,6 +81,9 @@ global.__ = {
     credentials,
     url,
     users,
+    newName,
+    newAvatar,
+    newPassword
 };
 global.fetch = fetch;
 global.localStorage = new LocalStorage();
